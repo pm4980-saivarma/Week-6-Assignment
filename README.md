@@ -1,61 +1,65 @@
-# Week 4 Assignment
+# Week 5 Assignment
 
-Java implementations for five array and subarray algorithm problems.
+This repository contains five Java solutions for the fantasy sports programming
+assignment. Each problem is stored in its own folder and includes the Java
+source file and the compiled `.class` file.
 
 ## Problems
 
-### A1. Product of Array Except Self
+### Problem 1: Fantasy Team Score Multiplier
 
-`A1_ProductOfArrayExceptSelf/ProductOfArrayExceptSelf.java`
+`applyMultipliers(...)` directly updates the captain's score by `2.0` and the
+vice-captain's score by `1.5`.
 
-Uses a forward pass for products to the left and a backward pass for products
-to the right. It does not use division and runs in `O(n)` time with `O(1)`
-extra space beyond the output array.
+### Problem 2: Duplicate Player Pick Checker
 
-### A2. Maximum Subarray
+`findDuplicatePick(...)` uses nested loops to find and report the first repeated
+player name.
 
-`A2_MaximumSubarray/MaximumSubarray.java`
+### Problem 3: Top Performer Tracker
 
-Uses Kadane's algorithm to find the largest sum of a non-empty contiguous
-subarray in `O(n)` time and `O(1)` extra space.
+`findMinMaxSpread(...)` finds the minimum, maximum, and spread in one pass
+without sorting the input array.
 
-### A3. 3Sum
+### Problem 4: Match Day Grid Analyzer
 
-`A3_3Sum/ThreeSum.java`
+`classifyMatches(...)` uses the reusable `rowAverage(...)` helper to classify
+each match as `Power Surge` or `Normal`.
 
-Sorts the input and uses two pointers to find all unique zero-sum triplets in
-`O(n^2)` time.
+### Problem 5: Fantasy League Auto-Draft Ranking Engine
 
-### A4. Subarray Sum Equals K
+`Player` demonstrates overloaded draftability checks, encapsulated fields,
+`Comparable<Player>`, and `Arrays.sort(...)` for descending batting-average
+ranking.
 
-`A4_SubarraySumEqualsK/SubarraySumEqualsK.java`
+## Folder Structure
 
-Uses prefix-sum frequencies in a hash map to count subarrays with sum `k` in
-`O(n)` time and `O(n)` space.
-
-### A5. Find Minimum in Rotated Sorted Array
-
-`A5_FindMinimumInRotatedSortedArray/FindMinimumInRotatedSortedArray.java`
-
-Uses modified binary search to find the minimum in `O(log n)` time.
+```text
+Problem1_FantasyTeamScoreMultiplier/
+Problem2_DuplicatePlayerPickChecker/
+Problem3_TopPerformerTracker/
+Problem4_MatchDayGridAnalyzer/
+Problem5_FantasyLeagueAutoDraftRankingEngine/
+```
 
 ## Compile and Run
 
-Each folder includes the Java source file and its compiled `.class` file.
-From the repository root, compile all solutions:
+From the repository root, compile each folder:
 
 ```powershell
-Get-ChildItem -Recurse -Filter *.java | ForEach-Object { javac $_.FullName }
+javac Problem1_FantasyTeamScoreMultiplier\*.java
+javac Problem2_DuplicatePlayerPickChecker\*.java
+javac Problem3_TopPerformerTracker\*.java
+javac Problem4_MatchDayGridAnalyzer\*.java
+javac Problem5_FantasyLeagueAutoDraftRankingEngine\*.java
 ```
 
-Run an individual solution from its folder:
+Run the sample programs:
 
 ```powershell
-java ProductOfArrayExceptSelf
-java MaximumSubarray
-java ThreeSum
-java SubarraySumEqualsK
-java FindMinimumInRotatedSortedArray
+java -cp Problem1_FantasyTeamScoreMultiplier FantasyTeamScoreMultiplier
+java -cp Problem2_DuplicatePlayerPickChecker DuplicatePlayerPickChecker
+java -cp Problem3_TopPerformerTracker TopPerformerTracker
+java -cp Problem4_MatchDayGridAnalyzer MatchDayGridAnalyzer
+java -cp Problem5_FantasyLeagueAutoDraftRankingEngine Player
 ```
-
-Each `main` method runs the sample cases from the assignment.
